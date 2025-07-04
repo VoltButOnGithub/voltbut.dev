@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+cd ..
+git pull
+BUILD_VERSION=$(git rev-parse HEAD)
+
+echo "$(date +$%F/%T): Deploying new version: $BUILD_VERSION"
+
+echo "$(date +$%F/%T): Running npm build..."
+npm install
+npm run build
+
+echo "$(date +$%F/%T): Running migrations..."
+php artisan migrate
+
+echo "$(date +$%F/%T): Running optimizations..."
+php artisan optimize:clear
+
+echo "$(date +$%F/%T): Restarting nginx..."
+sudo systemctl restart nginx.service
+
+echo "$(date +$%F/%T): Restarting php-fpm..."
+sudo systemctl restart php8.3-fpm.service
+
+echo "$(date +$%F/%T): Deployment done."
