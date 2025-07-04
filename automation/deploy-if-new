@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+echo "$(date +$%F/%T): Fetching..."
+git fetch
+
+UPSTREAM=${1:-'@{u}'}
+LOCAL=$(git rev-parse @)
+REMOTE=$(git rev-parse "$UPSTREAM")
+BASE=$=(git merge-base @ "$UPSTREAM")
+
+if [ $LOCAL = $REMOTE ]; then
+    echo "$(date +$%F/%T): No changes."
+elif [ $LOCAL = $BASE ]; then
+    echo "$(date +$%F/%T): Changes detected."
+    ./automation/deploy
+elif [ $REMOTE = $BASE ]; then
+    echo "$(date +$%F/%T): Local changes detected, stashing."
+    git stash
+    ./automation/deploy
+else
+    echo "$(date +$%F/%T): Something went wrong. That's sad"
+fi 
