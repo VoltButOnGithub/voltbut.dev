@@ -114,5 +114,7 @@ import { Head, Link } from '@inertiajs/vue3';
             </main>
         </div>
         <div class="hidden h-14.5 lg:block"></div>
+        <Link :href="route('about')" class="text-foreground underline decoration-neutral-300 underline-offset-4 transition-colors duration-300 ease-out hover:decoration-current! dark:decoration-neutral-500" >Ooooh new link where does it lead</Link>
+
     </div>
 </template>
