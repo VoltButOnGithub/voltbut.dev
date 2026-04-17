@@ -88,7 +88,7 @@ import { Head, Link } from '@inertiajs/vue3';
                                 </span>
                             </span>
                             <span>
-                                Also this website is a work in  progress please come back later
+                                Im going to blow this website up soon its a stinky Larvel Inertia Vue project i hate it its so smelly so big and gassy ugh. Gonna replace it with a CLEAN Nuxt project at some point
                             </span>
                         </li>
                     </ul>
