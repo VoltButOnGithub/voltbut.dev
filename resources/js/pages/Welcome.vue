@@ -90,6 +90,9 @@ import { Head, Link } from '@inertiajs/vue3';
                             <span>
                                 Im going to blow this website up soon its a stinky Larvel Inertia Vue project i hate it its so smelly so big and gassy ugh. Gonna replace it with a CLEAN Nuxt project at some point
                             </span>
+                            <span>
+                                Tribute to kerret here hes miku or something idk bru
+                            </span>
                         </li>
                     </ul>
                     <ul class="flex gap-3 text-sm leading-normal">
